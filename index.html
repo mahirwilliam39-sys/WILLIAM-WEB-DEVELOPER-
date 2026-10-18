@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b18">
+<title>WILLIAM | Website Shop & Code School</title>
+
+<style>
+:root {
+  --bg: #080b18;
+  --panel: #101a2d;
+  --panel2: #15233b;
+  --gold: #ffd166;
+  --cyan: #35e5d0;
+  --blue: #5b8cff;
+  --green: #64f0a4;
+  --text: #f5f7ff;
+  --muted: #b8c4d9;
+  --border: #2b3a55;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, #172344, transparent 35%),
+    radial-gradient(circle at 90% 70%, #07323b, transparent 35%),
+    var(--bg);
+  min-height: 100vh;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8, 11, 24, .96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(15px);
+}
+
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 15px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  color: var(--cyan);
+  font-weight: 900;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+.brand span {
+  color: white;
+}
+
+.navlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.navlinks button {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 11px;
+  font-weight: 700;
+}
+
+.navlinks button:hover,
+.navlinks button.active {
+  color: var(--cyan);
+  background: #15233b;
+  border-color: var(--border);
+}
+
+.menu-toggle {
+  display: none;
+  background: var(--panel2);
+  color: white;
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+main {
+  min-height: 75vh;
+}
+
+.page {
+  display: none;
+  padding: 45px 5%;
+  animation: appear .3s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  max-width: 1150px;
+  margin: auto;
+}
+
+.hero {
+  min-height: 65vh;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 35px;
+}
+
+.badge {
+  display: inline-block;
+  color: var(--cyan);
+  background: #122d3a;
+  border: 1px solid #285968;
+  padding: 9px 13px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+  font-size: .82rem;
+  font-weight: 800;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.8rem);
+  line-height: 1.12;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 18px;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.gradient {
+  background: linear-gradient(90deg, var(--cyan), var(--blue), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+p {
+  line-height: 1.8;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 23px;
+}
+
+.btn {
+  padding: 13px 18px;
+  border-radius: 13px;
+  border: 1px solid var(--border);
+  background: var(--panel2);
+  color: white;
+  font-weight: 800;
+  transition: .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--cyan);
+}
+
+.primary {
+  background: linear-gradient(120deg, var(--cyan), #83aaff);
+  color: #07101d;
+  border-color: transparent;
+}
+
+.gold {
+  background: linear-gradient(120deg, var(--gold), #fff0a5);
+  color: #241600;
+  border: 0;
+}
+
+.green {
+  background: linear-gradient(120deg, var(--green), var(--cyan));
+  color: #061b17;
+  border: 0;
+}
+
+.panel {
+  background: rgba(16, 26, 45, .94);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 24px;
+  margin: 18px 0;
+  box-shadow: 0 15px 40px #0002;
+}
+
+.code-window {
+  background: #060b17;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  overflow-wrap: anywhere;
+}
+
+.code-window pre {
+  color: var(--cyan);
+  white-space: pre-wrap;
+  line-height: 1.9;
+  margin-top: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  padding: 23px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: linear-gradient(145deg, #15233b, #0c1323);
+  transition: .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+}
+
+.card p {
+  color: var(--muted);
+}
+
+.price {
+  color: var(--gold);
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 16px 0;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 17px;
+}
+
+label {
+  font-weight: 700;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 13px;
+  border-radius: 11px;
+  border: 1px solid var(--border);
+  color: white;
+  background: #080f1e;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.formgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.notice {
+  padding: 15px;
+  margin-top: 16px;
+  background: #102b31;
+  border-left: 4px solid var(--cyan);
+  border-radius: 8px;
+  color: #d7e7ef;
+  line-height: 1.7;
+}
+
+.status {
+  padding: 14px;
+  margin-top: 15px;
+  border-radius: 10px;
+  background: #142f26;
+  color: var(--green);
+  display: none;
+  line-height: 1.7;
+}
+
+.status.show {
+  display: block;
+}
+
+.lesson-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.lesson-button {
+  text-align: left;
+  background: var(--panel2);
+  color: white;
+  padding: 15px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.lesson-button.active {
+  border-color: var(--cyan);
+  background: #153444;
+}
+
+.lesson-content {
+  line-height: 1.9;
+}
+
+.lesson-content code {
+  color: var(--gold);
+  overflow-wrap: anywhere;
+}
+
+.editor {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.editor textarea {
+  min-height: 190px;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+iframe {
+  display: block;
+  width: 100%;
+  height: 330px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: white;
+  margin-top: 15px;
+}
+
+footer {
+  padding: 30px 5%;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 25px;
+  transform: translateX(-50%);
+  background: var(--cyan);
+  color: #07101d;
+  font-weight: 800;
+  padding: 14px 20px;
+  border-radius: 13px;
+  box-shadow: 0 10px 30px #0005;
+  display: none;
+  z-index: 999;
+  width: max-content;
+  max-width: 90%;
+}
+
+.toast.show {
+  display: block;
+}
+
+@media(max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .editor {
+    grid-template-columns: 1fr;
+  }
+
+  .navlinks {
+    display: none;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .navlinks.open {
+    display: grid;
+  }
+
+  .navlinks button {
+    width: 100%;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .formgrid {
+    grid-template-columns: 1fr;
+  }
+
+  .full {
+    grid-column: auto;
+  }
+
+  .page {
+    padding: 30px 5%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="brand">WILLIAM <span>CODE</span></div>
+
+    <button class="menu-toggle" id="menuToggle" type="button">
+      ☰ Menu
+    </button>
+
+    <div class="navlinks" id="navLinks">
+      <button class="active" data-page="shop">🏠 Shop</button>
+      <button data-page="packages">💎 Packages</button>
+      <button data-page="order">📝 Order</button>
+      <button data-page="learn">💻 Learn Coding</button>
+      <button data-page="lab">⌨ Code Lab</button>
+      <button data-page="contact">✉ Contact</button>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- WEBSITE SHOP HOME -->
+<section class="page active" id="shop">
+  <div class="container">
+    <div class="hero">
+      <div>
+        <div class="badge">✦ WILLIAM WEB STUDIO</div>
+
+        <h1>We Build Your <span class="gradient">Digital Future.</span></h1>
+
+        <p class="lead">
+          Premium websites for businesses, creators and companies.
+          Tell us your idea, choose a package and let us build your online presence.
+        </p>
+
+        <div class="actions">
+          <button class="btn gold" type="button" onclick="showPage('packages')">
+            ✦ Explore Packages
+          </button>
+
+          <button class="btn" type="button" onclick="showPage('order')">
+            📝 Order a Website
+          </button>
+        </div>
+      </div>
+
+      <div class="code-window">
+        <div class="badge">YOUR IDEA → YOUR WEBSITE</div>
+        <pre>
+&lt;website&gt;
+  &lt;design&gt;Premium&lt;/design&gt;
+  &lt;quality&gt;Modern&lt;/quality&gt;
+  &lt;future&gt;Unlimited&lt;/future&gt;
+&lt;/website&gt;
+        </pre>
+      </div>
+    </div>
+
+    <h2>What We <span class="gradient">Create.</span></h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>🌐 Business Websites</h3>
+        <p>Present your company, services, contact information and brand.</p>
+      </div>
+
+      <div class="card">
+        <h3>🛍️ Online Shops</h3>
+        <p>Display products and give customers a way to contact you about orders.</p>
+      </div>
+
+      <div class="card">
+        <h3>✨ Custom Websites</h3>
+        <p>Choose your preferred colours, fonts, sections and design style.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="page" id="packages">
+  <div class="container">
+    <div class="badge">WEBSITE PACKAGES</div>
+    <h2>Choose Your <span class="gradient">Website.</span></h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Starter</h3>
+        <p>A simple website for an individual or small project.</p>
+        <div class="price">5,000 ETB</div>
+        <button class="btn primary" type="button" onclick="choosePackage('Starter')">
+          Choose Starter
+        </button>
+      </div>
+
+      <div class="card">
+        <h3>Basic</h3>
+        <p>A polished website for a small business.</p>
+        <div class="price">7,000 ETB</div>
+        <button class="btn primary" type="button" onclick="choosePackage('Basic')">
+          Choose Basic
+        </button>
+      </div>
+
+      <div class="card">
+        <h3>Premium</h3>
+        <p>A more detailed website with extra sections and design.</p>
+        <div class="price">11,000 ETB</div>
+        <button class="btn gold" type="button" onclick="choosePackage('Premium')">
+          Choose Premium
+        </button>
+      </div>
+
+      <div class="card">
+        <h3>Custom</h3>
+        <p>Discuss your individual design and feature requirements.</p>
+        <div class="price">17,000–43,000 ETB</div>
+        <button class="btn green" type="button" onclick="choosePackage('Custom')">
+          Choose Custom
+        </button>
+      </div>
+    </div>
+
+    <div class="notice">
+      These are the displayed package prices. Confirm the exact scope, delivery time,
+      hosting and any extra costs with the developer before paying.
+    </div>
+  </div>
+</section>
+
+<!-- ORDER FORM -->
+<section class="page" id="order">
+  <div class="container">
+    <div class="badge">START YOUR PROJECT</div>
+    <h2>Website <span class="gradient">Order Form.</span></h2>
+
+    <p class="muted">
+      Complete this form to prepare your order. Submitting it here saves the order
+      in this browser; it does not automatically send it to the developer.
+    </p>
+
+    <div class="panel">
+      <form id="orderForm">
+        <div class="formgrid">
+
+          <div class="field">
+            <label for="customerName">Your Name *</label>
+            <input id="customerName" required maxlength="100" placeholder="Enter your name">
+          </div>
+
+          <div class="field">
+            <label for="customerContact">Telegram or Phone *</label>
+            <input id="customerContact" required maxlength="100" placeholder="Your contact">
+          </div>
+
+          <div class="field">
+            <label for="package">Website Package *</label>
+            <select id="package" required>
+              <option value="">Choose a package</option>
+              <option value="Starter — 1,000 ETB">Starter — 1,000 ETB</option>
+              <option value="Basic — 2,000 ETB">Basic — 2,000 ETB</option>
+              <option value="Premium — 4,000 ETB">Premium — 4,000 ETB</option>
+              <option value="Custom — 6,000–8,000 ETB">Custom — 6,000–8,000 ETB</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="businessName">Company or Website Name *</label>
+            <input id="businessName" required maxlength="150" placeholder="Your company name">
+          </div>
+
+          <div class="field full">
+            <label for="projectDetails">Describe Your Website *</label>
+            <textarea id="projectDetails" required maxlength="3000"
+              placeholder="What kind of website do you need? What colours and features do you want?"></textarea>
+          </div>
+
+        </div>
+
+        <div class="actions">
+          <button class="btn gold" type="submit">✓ Submit Website Order</button>
+        </div>
+      </form>
+
+      <div class="status" id="orderStatus" aria-live="polite"></div>
+
+      <div class="actions" id="learnAction" hidden>
+        <button class="btn primary" type="button" onclick="openLearning()">
+          📘 Learn Coding Now
+        </button>
+      </div>
+
+      <div class="notice">
+        Do not enter passwords or banking PINs. This demonstration does not collect
+        payments or send orders to a server.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARNING SCHOOL -->
+<section class="page" id="learn">
+  <div class="container">
+    <div class="badge">WILLIAM CODE · CODING SCHOOL</div>
+
+    <h1>Turn Your Ideas Into <span class="gradient">Amazing Websites.</span></h1>
+
+    <p class="lead">
+      Learn HTML, CSS and JavaScript. Practise in your browser and build your own projects.
+    </p>
+
+    <div class="actions">
+      <button class="btn primary" type="button" onclick="showPage('lessons')">
+        🚀 Start Learning
+      </button>
+
+      <button class="btn" type="button" onclick="showPage('lab')">
+        ⌨ Open Code Lab
+      </button>
+
+      <button class="btn gold" type="button" onclick="showPage('shop')">
+        ← Back to Website Shop
+      </button>
+    </div>
+
+    <div class="grid" style="margin-top:28px">
+      <div class="card">
+        <h3>🌐 HTML</h3>
+        <p>Learn how to structure websites with headings, paragraphs, links and forms.</p>
+      </div>
+
+      <div class="card">
+        <h3>🎨 CSS</h3>
+        <p>Learn colours, layouts, responsive design, animations and modern styling.</p>
+      </div>
+
+      <div class="card">
+        <h3>⚡ JavaScript</h3>
+        <p>Learn variables, functions, events and interactive website features.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LESSONS -->
+<section class="page" id="lessons">
+  <div class="container">
+    <div class="badge">BEGINNER COURSE</div>
+    <h2>Learn <span class="gradient">Web Development.</span></h2>
+
+    <p class="muted">
+      Choose a lesson. The lesson explanation and example will appear below.
+    </p>
+
+    <div class="lesson-list" id="lessonList"></div>
+
+    <div class="panel">
+      <h2 id="lessonTitle">Introduction to HTML</h2>
+      <div class="lesson-content" id="lessonContent"></div>
+
+      <div class="actions">
+        <button class="btn" type="button" onclick="previousLesson()">← Previous</button>
+        <button class="btn primary" type="button" onclick="nextLesson()">Next Lesson →</button>
+        <button class="btn green" type="button" onclick="showPage('lab')">Practise in Code Lab</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CODE LAB -->
+<section class="page" id="lab">
+  <div class="container">
+    <div class="badge">PRACTISE BY BUILDING</div>
+    <h2>Your <span class="gradient">Code Lab.</span></h2>
+
+    <p class="muted">
+      Edit the HTML and CSS, then tap Run Code to see your result.
+    </p>
+
+    <div class="panel">
+      <div class="editor">
+        <div class="field">
+          <label for="labHTML">HTML Code</label>
+          <textarea id="labHTML" spellcheck="false"><h1>Hello, World!</h1>
+<p>I am learning to code.</p>
+<button id="helloButton">Click Me</button>
+<p id="message"></p></textarea>
+        </div>
+
+        <div class="field">
+          <label for="labCSS">CSS Code</label>
+          <textarea id="labCSS" spellcheck="false">body {
+  font-family: Arial;
+  padding: 20px;
+  background: #eef4ff;
+  color: #14213d;
+}
+
+h1 {
+  color: #315efb;
+}
+
+button {
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: #315efb;
+  color: white;
+}</textarea>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn primary" type="button" id="runCode">
+          ▶ Run Code
+        </button>
+
+        <button class="btn" type="button" id="resetCode">
+          ↻ Reset Example
+        </button>
+
+        <button class="btn gold" type="button" id="downloadCode">
+          ↓ Download HTML
+        </button>
+      </div>
+
+      <iframe id="labPreview" title="Code preview" sandbox="allow-scripts"></iframe>
+
+      <div class="notice">
+        The code runs in a preview frame. Avoid entering passwords or private information.
+      </div>
+    </div>
+
+    <button class="btn" type="button" onclick="showPage('learn')">
+      ← Back to WILLIAM CODE
+    </button>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="page" id="contact">
+  <div class="container">
+    <div class="badge">GET IN TOUCH</div>
+    <h2>Contact <span class="gradient">WILLIAM.</span></h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>✈ Telegram</h3>
+        <p>Send a message about a website project.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://t.me/Mah_Wil"
+             target="_blank" rel="noopener noreferrer">Contact on Telegram</a>
+        </div>
+      </div>
+<div  class="card">
+    <h3> 📞 contact</h3>
+    <p>0708830433</p>
+</div>
+      <div class="card">
+        <h3>📍 Location</h3>
+        <p>Dessie Tequam, Ethiopia.</p>
+      </div>
+
+      <div class="card">
+        <h3>👨‍💻 Creator</h3>
+        <p>Created by Mahir.</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn" type="button" onclick="showPage('shop')">
+        ← Back to Shop
+      </button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p><strong>WILLIAM WEBSITE SHOP</strong> · <strong>WILLIAM CODE</strong></p>
+  <p>Created by Mahir · <span id="year"></span></p>
+  <p class="muted">Learn · Practise · Build · Improve</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+
+/* =========================================
+   WILLIAM WEBSITE SHOP + WILLIAM CODE
+   Navigation and button functions
+========================================= */
+
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => [...document.querySelectorAll(selector)];
+
+const validPages = [
+  "shop", "packages", "order", "learn",
+  "lessons", "lab", "contact"
+];
+
+function showPage(pageId) {
+  if (!validPages.includes(pageId)) return;
+
+  $$(".page").forEach(page => {
+    page.classList.toggle("active", page.id === pageId);
+  });
+
+  $$(".navlinks button").forEach(button => {
+    button.classList.toggle(
+      "active",
+      button.dataset.page === pageId
+    );
+  });
+
+  $("#navLinks").classList.remove("open");
+  $("#menuToggle").setAttribute("aria-expanded", "false");
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  if (pageId === "lab") {
+    runCode();
+  }
+}
+
+function showToast(message) {
+  const toast = $("#toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  clearTimeout(showToast.timer);
+
+  showToast.timer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2800);
+}
+
+/* Navigation buttons */
+
+$$(".navlinks button").forEach(button => {
+  button.addEventListener("click", () => {
+    showPage(button.dataset.page);
+  });
+});
+
+/* Mobile menu */
+
+$("#menuToggle").addEventListener("click", () => {
+  const menu = $("#navLinks");
+  const opened = menu.classList.toggle("open");
+
+  $("#menuToggle").setAttribute(
+    "aria-expanded",
+    String(opened)
+  );
+});
+
+/* Choose a website package */
+
+function choosePackage(name) {
+  const packages = {
+    Starter: "Starter — 1,000 ETB",
+    Basic: "Basic — 2,000 ETB",
+    Premium: "Premium — 4,000 ETB",
+    Custom: "Custom — 6,000–8,000 ETB"
+  };
+
+  $("#package").value = packages[name] || "";
+
+  showPage("order");
+  showToast(name + " package selected.");
+}
+
+/* Website order form */
+
+$("#orderForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const order = {
+    name: $("#customerName").value.trim(),
+    contact: $("#customerContact").value.trim(),
+    package: $("#package").value,
+    business: $("#businessName").value.trim(),
+    details: $("#projectDetails").value.trim(),
+    date: new Date().toISOString()
+  };
+
+  if (
+    !order.name ||
+    !order.contact ||
+    !order.package ||
+    !order.business ||
+    !order.details
+  ) {
+    showToast("Please complete all required fields.");
+    return;
+  }
+
+  try {
+    const savedOrders = JSON.parse(
+      localStorage.getItem("williamWebsiteOrders") || "[]"
+    );
+
+    savedOrders.push(order);
+
+    localStorage.setItem(
+      "williamWebsiteOrders",
+      JSON.stringify(savedOrders)
+    );
+  } catch (error) {
+    console.warn("Browser storage unavailable.", error);
+  }
+
+  $("#orderStatus").textContent =
+    "Your order form was submitted on this device. " +
+    "Your selected package is " + order.package +
+    ". To actually send the order to the developer, use the contact option. " +
+    "You can now open WILLIAM CODE below.";
+
+  $("#orderStatus").classList.add("show");
+
+  $("#learnAction").hidden = false;
+
+  showToast("Order form submitted!");
+});
+
+/* Open the learning school after order */
+
+function openLearning() {
+  showPage("learn");
+  showToast("Welcome to WILLIAM CODE!");
+}
+
+/* Lessons */
+
+const lessons = [
+  {
+    title: "1. Introduction to HTML",
+    text: `
+      <p><strong>English:</strong> HTML means HyperText Markup Language.
+      It gives a webpage its structure.</p>
+      <p><strong>አማርኛ:</strong> HTML ማለት የድረ-ገጽን መዋቅር የሚፈጥር ቋንቋ ነው።</p>
+      <h3>Example</h3>
+      <pre>&lt;h1&gt;Hello World&lt;/h1&gt;
+&lt;p&gt;I am learning HTML.&lt;/p&gt;</pre>
+      <p><strong>Activity:</strong> Change “Hello World” to your own name.</p>
+    `
+  },
+  {
+    title: "2. HTML Headings",
+    text: `
+      <p><strong>English:</strong> HTML has six heading levels, from h1 to h6.</p>
+      <p><strong>አማርኛ:</strong> ርዕሶችን ለመጻፍ h1 እስከ h6 እንጠቀማለን።</p>
+      <pre>&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Second Heading&lt;/h2&gt;
+&lt;h3&gt;Third Heading&lt;/h3&gt;</pre>
+      <p><strong>Activity:</strong> Write three different headings in Code Lab.</p>
+    `
+  },
+  {
+    title: "3. Paragraphs and Text",
+    text: `
+      <p><strong>English:</strong> Use the p element for a paragraph.</p>
+      <p><strong>አማርኛ:</strong> ጽሑፍን በአንቀጽ ለማቅረብ p እንጠቀማለን።</p>
+      <pre>&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;strong&gt;Important text&lt;/strong&gt;</pre>
+      <p><strong>Activity:</strong> Write a paragraph about your school.</p>
+    `
+  },
+  {
+    title: "4. Links",
+    text: `
+      <p><strong>English:</strong> The a element creates a link.</p>
+      <p><strong>አማርኛ:</strong> ሌላ ገጽ ወይም ድረ-ገጽ ለመክፈት a እንጠቀማለን።</p>
+      <pre>&lt;a href="https://example.com"&gt;
+Visit Website
+&lt;/a&gt;</pre>
+      <p><strong>Activity:</strong> Create a link to a website you like.</p>
+    `
+  },
+  {
+    title: "5. CSS Introduction",
+    text: `
+      <p><strong>English:</strong> CSS controls the appearance of HTML elements.</p>
+      <p><strong>አማርኛ:</strong> CSS የድረ-ገጽን ቀለም፣ መጠንና አቀማመጥ ይቆጣጠራል።</p>
+      <pre>h1 {
+  color: blue;
+  font-size: 32px;
+}</pre>
+      <p><strong>Activity:</strong> Change the heading colour in Code Lab.</p>
+    `
+  },
+  {
+    title: "6. JavaScript Introduction",
+    text: `
+      <p><strong>English:</strong> JavaScript adds behaviour and interaction to webpages.</p>
+      <p><strong>አማርኛ:</strong> JavaScript ድረ-ገጽን ተግባራዊና ተለዋዋጭ ያደርጋል።</p>
+      <pre>document.getElementById("message")
+  .textContent = "Hello!";</pre>
+      <p><strong>Activity:</strong> Use the Code Lab button to change a message.</p>
+    `
+  }
+];
+
+let currentLesson = 0;
+
+function renderLessons() {
+  const list = $("#lessonList");
+  list.innerHTML = "";
+
+  lessons.forEach((lesson, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className =
+      "lesson-button" + (index === currentLesson ? " active" : "");
+    button.textContent = lesson.title;
+
+    button.addEventListener("click", () => {
+      currentLesson = index;
+      renderLessons();
+    });
+
+    list.appendChild(button);
+  });
+
+  $("#lessonTitle").textContent = lessons[currentLesson].title;
+  $("#lessonContent").innerHTML = lessons[currentLesson].text;
+}
+
+function nextLesson() {
+  currentLesson = (currentLesson + 1) % lessons.length;
+  renderLessons();
+}
+
+function previousLesson() {
+  currentLesson =
+    (currentLesson - 1 + lessons.length) % lessons.length;
+
+  renderLessons();
+}
+
+/* Code Lab */
+
+const defaultHTML = `<h1>Hello, World!</h1>
+<p>I am learning to code.</p>
+<button id="helloButton">Click Me</button>
+<p id="message"></p>`;
+
+const defaultCSS = `body {
+  font-family: Arial;
+  padding: 20px;
+  background: #eef4ff;
+  color: #14213d;
+}
+
+h1 {
+  color: #315efb;
+}
+
+button {
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: #315efb;
+  color: white;
+}`;
+
+function buildPreviewDocument(html, css) {
+  return `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>${css}</style>
+</head>
+<body>
+${html}
+<script>
+document.addEventListener("click", function(event) {
+  if (event.target && event.target.id === "helloButton") {
+    const message = document.getElementById("message");
+    if (message) message.textContent = "Amazing! Your JavaScript works.";
+  }
+});
+<\/script>
+</body>
+</html>`;
+}
+
+function runCode() {
+  const html = $("#labHTML").value;
+  const css = $("#labCSS").value;
+
+  $("#labPreview").srcdoc = buildPreviewDocument(html, css);
+}
+
+$("#runCode").addEventListener("click", () => {
+  runCode();
+  showToast("Code preview updated!");
+});
+
+$("#resetCode").addEventListener("click", () => {
+  $("#labHTML").value = defaultHTML;
+  $("#labCSS").value = defaultCSS;
+  runCode();
+  showToast("Example reset!");
+});
+
+$("#downloadCode").addEventListener("click", () => {
+  const html = $("#labHTML").value;
+  const css = $("#labCSS").value;
+  const completeHTML = buildPreviewDocument(html, css);
+
+  const blob = new Blob(
+    [completeHTML],
+    { type: "text/html;charset=utf-8" }
+  );
+
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+
+  link.href = url;
+  link.download = "william-code-project.html";
+
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+
+  showToast("Download started!");
+});
+
+/* Initial setup */
+
+$("#year").textContent = new Date().getFullYear();
+
+renderLessons();
+runCode();
+
+</script>
+
+</body>
+</html>
