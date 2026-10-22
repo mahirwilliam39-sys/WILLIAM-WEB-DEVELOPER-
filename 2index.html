@@ -1,489 +1,309 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b18">
-<title>WILLIAM | Website Shop & Code School</title>
+<meta name="theme-color" content="#06100b">
+<title>WILLIAM WEBSITE SHOP | 3D Web Studio</title>
 
 <style>
-:root {
-  --bg: #080b18;
-  --panel: #101a2d;
-  --panel2: #15233b;
-  --gold: #ffd166;
-  --cyan: #35e5d0;
-  --blue: #5b8cff;
-  --green: #64f0a4;
-  --text: #f5f7ff;
-  --muted: #b8c4d9;
-  --border: #2b3a55;
+:root{
+  --bg:#050a08;
+  --panel:#0c1711;
+  --green:#65ff9b;
+  --light:#b8ffca;
+  --white:#f5fff7;
+  --muted:#9eafa4;
+  --border:rgba(101,255,155,.22);
+  --accent:#65ff9b;
 }
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  color: var(--text);
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{
   background:
-    radial-gradient(circle at 10% 10%, #172344, transparent 35%),
-    radial-gradient(circle at 90% 70%, #07323b, transparent 35%),
+    radial-gradient(ellipse at 15% 0%,#123a24 0%,transparent 35%),
+    radial-gradient(ellipse at 100% 30%,#10291b 0%,transparent 30%),
     var(--bg);
-  min-height: 100vh;
+  color:var(--white);
+  font-family:Arial,Helvetica,sans-serif;
+  line-height:1.6;
+  overflow-x:hidden;
 }
-
-button, input, select, textarea {
-  font: inherit;
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.container{width:min(1160px,92%);margin:auto}
+section{padding:75px 0}
+.eyebrow{
+  color:var(--green);text-transform:uppercase;
+  letter-spacing:3px;font-size:12px;font-weight:900;
 }
-
-button {
-  cursor: pointer;
+.section-title{
+  font-size:clamp(29px,5vw,46px);
+  line-height:1.15;margin:10px 0 15px;
 }
-
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible {
-  outline: 3px solid var(--cyan);
-  outline-offset: 3px;
+.section-desc{color:var(--muted);max-width:680px}
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(4,10,7,.92);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--border);
 }
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(8, 11, 24, .96);
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(15px);
+.header-inner{
+  width:min(1200px,96%);margin:auto;
+  display:flex;align-items:center;gap:16px;
+  padding:12px 0;
 }
-
-nav {
-  max-width: 1200px;
-  margin: auto;
-  padding: 15px 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
+.logo{
+  flex:0 0 auto;font-weight:1000;font-size:17px;
+  letter-spacing:-.5px;color:var(--green);
 }
-
-.brand {
-  color: var(--cyan);
-  font-weight: 900;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
+.logo span{color:white}
+.navbar{
+  margin-left:auto;display:flex;flex-direction:row;
+  flex-wrap:nowrap;align-items:center;gap:17px;
+  overflow-x:auto;white-space:nowrap;
+  scrollbar-width:none;max-width:100%;
 }
-
-.brand span {
-  color: white;
+.navbar::-webkit-scrollbar{display:none}
+.navbar a{
+  flex:0 0 auto;font-size:11px;font-weight:900;
+  color:#d7e8dc;letter-spacing:.4px;
+  transition:.2s;padding:8px 0;
 }
-
-.navlinks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+.navbar a:hover{color:var(--green)}
+.menu-button{
+  flex:0 0 auto;border:1px solid var(--border);
+  color:var(--green);background:#0b1c12;
+  border-radius:10px;padding:7px 10px;
 }
-
-.navlinks button {
-  background: transparent;
-  color: var(--muted);
-  border: 1px solid transparent;
-  border-radius: 10px;
-  padding: 11px;
-  font-weight: 700;
+.btn{
+  display:inline-flex;justify-content:center;align-items:center;
+  gap:8px;padding:12px 19px;border-radius:12px;
+  border:1px solid var(--border);font-weight:900;
+  transition:transform .25s,box-shadow .25s,background .25s;
 }
-
-.navlinks button:hover,
-.navlinks button.active {
-  color: var(--cyan);
-  background: #15233b;
-  border-color: var(--border);
+.btn:hover{transform:translateY(-4px);box-shadow:0 12px 35px #65ff9b22}
+.btn-primary{background:var(--green);color:#041108;border-color:var(--green)}
+.btn-secondary{background:#0c1911;color:var(--white)}
+.btn-small{padding:8px 12px;font-size:12px}
+.hero{padding:72px 0 65px;min-height:580px;display:flex;align-items:center}
+.hero-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;
+  gap:45px;align-items:center;
 }
-
-.menu-toggle {
-  display: none;
-  background: var(--panel2);
-  color: white;
-  padding: 12px 15px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
+.hero h1{
+  font-size:clamp(42px,7vw,76px);line-height:1.02;
+  letter-spacing:-3px;margin:15px 0 22px;
 }
-
-main {
-  min-height: 75vh;
+.hero h1 span{
+  color:var(--green);
+  text-shadow:0 0 32px #65ff9b33;
 }
-
-.page {
-  display: none;
-  padding: 45px 5%;
-  animation: appear .3s ease;
+.hero p{color:var(--muted);max-width:570px;font-size:16px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.hero-stats{display:flex;gap:25px;flex-wrap:wrap;margin-top:32px}
+.stat strong{display:block;font-size:23px;color:var(--green)}
+.stat span{font-size:12px;color:var(--muted)}
+.scene{perspective:1000px;min-width:0}
+.monitor{
+  background:linear-gradient(145deg,#193c28,#07110b);
+  padding:13px;border:1px solid #65ff9b55;
+  border-radius:23px;
+  box-shadow:0 30px 80px #000a,0 0 55px #65ff9b13;
+  transform:rotateY(-9deg) rotateX(4deg);
+  animation:float 5s ease-in-out infinite;
 }
-
-.page.active {
-  display: block;
+@keyframes float{
+  0%,100%{transform:rotateY(-9deg) rotateX(4deg) translateY(0)}
+  50%{transform:rotateY(-5deg) rotateX(2deg) translateY(-12px)}
 }
-
-@keyframes appear {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.monitor-top{display:flex;gap:6px;padding:4px 5px 12px}
+.dot{width:8px;height:8px;border-radius:50%;background:#65ff9b}
+.dot:nth-child(2){background:#d8e97c}
+.dot:nth-child(3){background:#7bbcff}
+.screen{
+  min-height:315px;border-radius:13px;padding:22px;
+  background:
+    linear-gradient(135deg,#0b2114ee,#07100bee),
+    repeating-linear-gradient(0deg,transparent,transparent 29px,#ffffff08 30px);
+  border:1px solid #ffffff12;
 }
-
-.container {
-  max-width: 1150px;
-  margin: auto;
+.screen-label{color:var(--green);font-size:11px;letter-spacing:2px}
+.screen h3{font-size:29px;line-height:1.2;margin:12px 0}
+.screen p{font-size:12px;color:#9cb9a5}
+.fake-code{
+  margin-top:24px;padding:15px;border-radius:12px;
+  background:#020704;border:1px solid #65ff9b22;
+  font-family:monospace;font-size:12px;color:#baffcc;
 }
-
-.hero {
-  min-height: 65vh;
-  display: grid;
-  grid-template-columns: 1.1fr .9fr;
-  align-items: center;
-  gap: 35px;
+.code-line{margin:5px 0}
+.code-green{color:#65ff9b}
+.screen-bottom{display:flex;gap:10px;margin-top:17px}
+.screen-chip{
+  flex:1;text-align:center;padding:10px 5px;
+  border-radius:9px;background:#10271a;color:#c7ffd6;font-size:11px;
 }
-
-.badge {
-  display: inline-block;
-  color: var(--cyan);
-  background: #122d3a;
-  border: 1px solid #285968;
-  padding: 9px 13px;
-  border-radius: 50px;
-  margin-bottom: 20px;
-  font-size: .82rem;
-  font-weight: 800;
+.float-tag{
+  display:inline-block;margin-top:14px;
+  background:#102719;border:1px solid var(--border);
+  color:var(--green);padding:8px 13px;border-radius:10px;
+  font-size:12px;font-weight:bold;
 }
-
-h1 {
-  font-size: clamp(2.5rem, 6vw, 4.8rem);
-  line-height: 1.12;
-  margin-bottom: 20px;
+.feature-grid,.price-grid,.lesson-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;margin-top:30px;
 }
-
-h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
-  margin-bottom: 18px;
+.feature-card,.price-card,.panel,.lesson-card{
+  background:linear-gradient(145deg,#102016,#09110c);
+  border:1px solid var(--border);border-radius:19px;padding:23px;
+  box-shadow:0 14px 40px #0002;
+  transition:transform .25s,border-color .25s;
 }
-
-h3 {
-  font-size: 1.25rem;
-  margin-bottom: 12px;
+.feature-card:hover,.price-card:hover,.lesson-card:hover{
+  transform:translateY(-6px);border-color:#65ff9b88;
 }
-
-.gradient {
-  background: linear-gradient(90deg, var(--cyan), var(--blue), var(--gold));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+.feature-icon{font-size:27px;margin-bottom:12px}
+.feature-card h3,.lesson-card h3{margin-bottom:8px}
+.feature-card p,.lesson-card p{font-size:14px;color:var(--muted)}
+.price-card{position:relative;overflow:hidden}
+.price-card.popular{border-color:var(--green);box-shadow:0 0 35px #65ff9b13}
+.popular-tag{
+  display:inline-block;font-size:10px;letter-spacing:1px;
+  background:var(--green);color:#041108;padding:5px 8px;
+  border-radius:6px;font-weight:900;margin-bottom:12px;
 }
-
-p {
-  line-height: 1.8;
+.price-card h3{font-size:22px}
+.price{font-size:32px;font-weight:1000;color:var(--green);margin:12px 0}
+.price small{font-size:12px;color:var(--muted);font-weight:normal}
+.price-card ul{list-style:none;margin:18px 0 22px;color:#c3d3c8;font-size:14px}
+.price-card li{padding:5px 0}
+.price-card li::before{content:"✓ ";color:var(--green);font-weight:bold}
+.price-card .btn{width:100%}
+.badge{
+  display:inline-block;border:1px solid var(--border);
+  color:var(--green);font-size:11px;padding:4px 9px;
+  border-radius:20px;margin-bottom:10px;
 }
-
-.lead {
-  color: var(--muted);
-  font-size: 1.05rem;
+.split{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
+.panel h3{font-size:21px;margin-bottom:10px}
+.panel p{color:var(--muted);font-size:14px}
+.field{display:flex;flex-direction:column;gap:7px;margin:13px 0}
+.field label{font-size:12px;color:#c8d9cd;font-weight:bold}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px 13px;border-radius:10px;
+  color:white;background:#06100a;border:1px solid #294936;
+  outline:none;min-width:0;
 }
-
-.actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 23px;
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--green);box-shadow:0 0 0 3px #65ff9b12;
 }
-
-.btn {
-  padding: 13px 18px;
-  border-radius: 13px;
-  border: 1px solid var(--border);
-  background: var(--panel2);
-  color: white;
-  font-weight: 800;
-  transition: .2s;
+.field textarea{min-height:100px;resize:vertical}
+.field select option{background:#06100a}
+.color-row{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}
+.swatch{
+  width:34px;height:34px;border-radius:50%;
+  border:2px solid #ffffff55;cursor:pointer;
 }
-
-.btn:hover {
-  transform: translateY(-2px);
-  border-color: var(--cyan);
+.swatch.active{outline:2px solid white;outline-offset:3px}
+.custom-color{
+  width:50px!important;height:38px!important;padding:2px!important;
+  border:0!important;background:transparent!important;
 }
-
-.primary {
-  background: linear-gradient(120deg, var(--cyan), #83aaff);
-  color: #07101d;
-  border-color: transparent;
+.preview-box{
+  margin-top:17px;border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;background:#07110b;
 }
-
-.gold {
-  background: linear-gradient(120deg, var(--gold), #fff0a5);
-  color: #241600;
-  border: 0;
+.preview-top{padding:12px;background:#102016;display:flex;justify-content:space-between;align-items:center}
+.preview-window{padding:22px;text-align:center;min-height:190px}
+.preview-window h3{font-size:25px;margin:14px 0}
+.preview-window p{color:var(--muted);font-size:13px}
+.preview-button{
+  margin-top:18px;padding:10px 16px;border:0;
+  background:var(--accent);color:#07110b;border-radius:9px;font-weight:900;
 }
-
-.green {
-  background: linear-gradient(120deg, var(--green), var(--cyan));
-  color: #061b17;
-  border: 0;
+.preview-glass{backdrop-filter:blur(10px);background:#65ff9b18}
+.preview-minimal{border-radius:0!important;box-shadow:none!important}
+.preview-neon{box-shadow:inset 0 0 25px #65ff9b33,0 0 15px #65ff9b33}
+.preview-luxury{background:linear-gradient(135deg,#241a08,#0b110b)!important;border-color:#d6b55d!important}
+.hidden{display:none!important}
+.lock-box{
+  margin-top:25px;padding:25px;border-radius:18px;
+  border:1px solid var(--border);background:#0a160e;
 }
-
-.panel {
-  background: rgba(16, 26, 45, .94);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 24px;
-  margin: 18px 0;
-  box-shadow: 0 15px 40px #0002;
+.lock-icon{font-size:35px}
+.lock-box h3{font-size:22px;margin:5px 0}
+.lock-box p{color:var(--muted);font-size:14px}
+.password-row{display:flex;gap:10px;margin-top:15px}
+.password-row input{
+  min-width:0;flex:1;padding:12px;border-radius:10px;
+  border:1px solid #294936;background:#040b06;color:white;
 }
-
-.code-window {
-  background: #060b17;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 24px;
-  overflow-wrap: anywhere;
+.message{font-size:13px;margin-top:10px}
+.success{color:var(--green)}
+.error{color:#ff9e9e}
+.lesson-content{
+  margin-top:25px;padding:23px;border-radius:17px;
+  background:#07120b;border:1px solid var(--green);
 }
-
-.code-window pre {
-  color: var(--cyan);
-  white-space: pre-wrap;
-  line-height: 1.9;
-  margin-top: 20px;
+.lesson-content pre{
+  white-space:pre-wrap;overflow-wrap:anywhere;
+  background:#020604;color:#b7ffca;padding:15px;
+  border-radius:10px;margin:12px 0;font-size:12px;
+  overflow-x:auto;
 }
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+.lesson-content h3{margin-top:20px}
+.lesson-content p{color:#b3c7b8}
+.notice{
+  margin-top:15px;border-left:3px solid #e9ca6b;
+  padding:10px 13px;background:#e9ca6b0d;
+  color:#e9dca9;font-size:12px;border-radius:0 8px 8px 0;
 }
-
-.card {
-  padding: 23px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: linear-gradient(145deg, #15233b, #0c1323);
-  transition: .2s;
+.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:22px;margin-top:28px}
+.contact-number{font-size:clamp(25px,4vw,38px);font-weight:1000;color:var(--green);margin:10px 0}
+.contact-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.order-output{
+  white-space:pre-wrap;overflow-wrap:anywhere;
+  padding:16px;background:#030805;border:1px solid var(--border);
+  border-radius:12px;color:#d8ffe2;font-size:13px;margin-top:15px;
 }
-
-.card:hover {
-  transform: translateY(-4px);
-  border-color: var(--cyan);
+.faq-item{padding:15px 0;border-bottom:1px solid var(--border)}
+.faq-item summary{cursor:pointer;font-weight:bold}
+.faq-item p{color:var(--muted);font-size:14px;margin-top:8px}
+footer{border-top:1px solid var(--border);padding:27px 0;color:var(--muted);font-size:12px}
+.footer-inner{display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.toast{
+  position:fixed;bottom:20px;left:50%;transform:translateX(-50%);
+  background:var(--green);color:#031007;font-weight:900;
+  border-radius:10px;padding:12px 17px;z-index:200;
+  box-shadow:0 10px 30px #0008;
 }
-
-.card p {
-  color: var(--muted);
+.reveal{animation:reveal .7s ease both}
+@keyframes reveal{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:800px){
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  .hero{padding-top:50px}
+  .scene{max-width:560px;width:100%;margin:auto}
+  .feature-grid,.price-grid,.lesson-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .split,.contact-grid{grid-template-columns:1fr}
+  .monitor{transform:none;animation:float 5s ease-in-out infinite}
 }
-
-.price {
-  color: var(--gold);
-  font-size: 2rem;
-  font-weight: 900;
-  margin: 16px 0;
-}
-
-.muted {
-  color: var(--muted);
-}
-
-.field {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 17px;
-}
-
-label {
-  font-weight: 700;
-}
-
-input, select, textarea {
-  width: 100%;
-  padding: 13px;
-  border-radius: 11px;
-  border: 1px solid var(--border);
-  color: white;
-  background: #080f1e;
-}
-
-textarea {
-  min-height: 110px;
-  resize: vertical;
-}
-
-.formgrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-
-.full {
-  grid-column: 1 / -1;
-}
-
-.notice {
-  padding: 15px;
-  margin-top: 16px;
-  background: #102b31;
-  border-left: 4px solid var(--cyan);
-  border-radius: 8px;
-  color: #d7e7ef;
-  line-height: 1.7;
-}
-
-.status {
-  padding: 14px;
-  margin-top: 15px;
-  border-radius: 10px;
-  background: #142f26;
-  color: var(--green);
-  display: none;
-  line-height: 1.7;
-}
-
-.status.show {
-  display: block;
-}
-
-.lesson-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-  margin: 22px 0;
-}
-
-.lesson-button {
-  text-align: left;
-  background: var(--panel2);
-  color: white;
-  padding: 15px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-}
-
-.lesson-button.active {
-  border-color: var(--cyan);
-  background: #153444;
-}
-
-.lesson-content {
-  line-height: 1.9;
-}
-
-.lesson-content code {
-  color: var(--gold);
-  overflow-wrap: anywhere;
-}
-
-.editor {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.editor textarea {
-  min-height: 190px;
-  font-family: monospace;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-iframe {
-  display: block;
-  width: 100%;
-  height: 330px;
-  border: 1px solid var(--border);
-  border-radius: 13px;
-  background: white;
-  margin-top: 15px;
-}
-
-footer {
-  padding: 30px 5%;
-  text-align: center;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-}
-
-.toast {
-  position: fixed;
-  left: 50%;
-  bottom: 25px;
-  transform: translateX(-50%);
-  background: var(--cyan);
-  color: #07101d;
-  font-weight: 800;
-  padding: 14px 20px;
-  border-radius: 13px;
-  box-shadow: 0 10px 30px #0005;
-  display: none;
-  z-index: 999;
-  width: max-content;
-  max-width: 90%;
-}
-
-.toast.show {
-  display: block;
-}
-
-@media(max-width: 800px) {
-  .hero {
-    grid-template-columns: 1fr;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .lesson-list {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .editor {
-    grid-template-columns: 1fr;
-  }
-
-  .navlinks {
-    display: none;
-    width: 100%;
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .navlinks.open {
-    display: grid;
-  }
-
-  .navlinks button {
-    width: 100%;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .formgrid {
-    grid-template-columns: 1fr;
-  }
-
-  .full {
-    grid-column: auto;
-  }
-
-  .page {
-    padding: 30px 5%;
-  }
+@media(max-width:520px){
+  .header-inner{gap:10px;width:95%}
+  .logo{font-size:13px}
+  .navbar{gap:13px}
+  .navbar a{font-size:10px}
+  .menu-button{display:none}
+  .feature-grid,.price-grid,.lesson-grid{grid-template-columns:1fr}
+  .hero h1{letter-spacing:-2px}
+  .hero-stats{gap:17px}
+  .screen{padding:16px;min-height:290px}
+  .screen h3{font-size:25px}
+  section{padding:55px 0}
+  .panel,.price-card,.feature-card,.lesson-card{padding:19px}
+  .password-row{flex-direction:column}
+  .password-row .btn{width:100%}
 }
 </style>
 </head>
@@ -491,748 +311,752 @@ footer {
 <body>
 
 <header>
-  <nav>
-    <div class="brand">WILLIAM <span>CODE</span></div>
-
-    <button class="menu-toggle" id="menuToggle" type="button">
-      ☰ Menu
-    </button>
-
-    <div class="navlinks" id="navLinks">
-      <button class="active" data-page="shop">🏠 Shop</button>
-      <button data-page="packages">💎 Packages</button>
-      <button data-page="order">📝 Order</button>
-      <button data-page="learn">💻 Learn Coding</button>
-      <button data-page="lab">⌨ Code Lab</button>
-      <button data-page="contact">✉ Contact</button>
-    </div>
-  </nav>
+  <div class="header-inner">
+    <a class="logo" href="#home">WILLIAM <span>WEB STUDIO</span></a>
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="#home">HOME</a>
+      <a href="#service">SERVICE</a>
+      <a href="#lessons">LESSONS</a>
+      <a href="#contact">CONTACT US</a>
+      <a href="#about">ABOUT US</a>
+    </nav>
+    <a class="btn btn-primary btn-small menu-button" href="#order">ORDER</a>
+  </div>
 </header>
 
 <main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="eyebrow">✦ YOUR IDEAS. OUR CODE.</div>
+      <h1>Build Your<br>Digital <span>Future.</span></h1>
+      <p>
+        Welcome to WILLIAM WEBSITE SHOP — a creative web studio for
+        modern business websites, personal brands, online portfolios,
+        and custom digital experiences.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#service">Explore Services ↗</a>
+        <a class="btn btn-secondary" href="#order">Start Your Project</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>3D</strong><span>Modern design</span></div>
+        <div class="stat"><strong>24/7</strong><span>Order requests</span></div>
+        <div class="stat"><strong>100%</strong><span>Creative focus</span></div>
+      </div>
+    </div>
 
-<!-- WEBSITE SHOP HOME -->
-<section class="page active" id="shop">
-  <div class="container">
-    <div class="hero">
-      <div>
-        <div class="badge">✦ WILLIAM WEB STUDIO</div>
-
-        <h1>We Build Your <span class="gradient">Digital Future.</span></h1>
-
-        <p class="lead">
-          Premium websites for businesses, creators and companies.
-          Tell us your idea, choose a package and let us build your online presence.
-        </p>
-
-        <div class="actions">
-          <button class="btn gold" type="button" onclick="showPage('packages')">
-            ✦ Explore Packages
-          </button>
-
-          <button class="btn" type="button" onclick="showPage('order')">
-            📝 Order a Website
-          </button>
+    <div class="scene">
+      <div class="monitor">
+        <div class="monitor-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+        <div class="screen">
+          <div class="screen-label">WILLIAM DIGITAL STUDIO</div>
+          <h3>Ideas into<br><span style="color:var(--green)">Experiences.</span></h3>
+          <p>Design • Development • Creativity</p>
+          <div class="fake-code">
+            <div class="code-line"><span class="code-green">const</span> future = "digital";</div>
+            <div class="code-line"><span class="code-green">function</span> buildIdeas() {</div>
+            <div class="code-line">&nbsp;&nbsp;return "Your website";</div>
+            <div class="code-line">}</div>
+            <div class="code-line" style="color:#b8baff">✓ Ready to create</div>
+          </div>
+          <div class="screen-bottom">
+            <div class="screen-chip">⚡ Fast</div>
+            <div class="screen-chip">◇ Modern</div>
+            <div class="screen-chip">✦ Custom</div>
+          </div>
         </div>
       </div>
-
-      <div class="code-window">
-        <div class="badge">YOUR IDEA → YOUR WEBSITE</div>
-        <pre>
-&lt;website&gt;
-  &lt;design&gt;Premium&lt;/design&gt;
-  &lt;quality&gt;Modern&lt;/quality&gt;
-  &lt;future&gt;Unlimited&lt;/future&gt;
-&lt;/website&gt;
-        </pre>
-      </div>
-    </div>
-
-    <h2>What We <span class="gradient">Create.</span></h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>🌐 Business Websites</h3>
-        <p>Present your company, services, contact information and brand.</p>
-      </div>
-
-      <div class="card">
-        <h3>🛍️ Online Shops</h3>
-        <p>Display products and give customers a way to contact you about orders.</p>
-      </div>
-
-      <div class="card">
-        <h3>✨ Custom Websites</h3>
-        <p>Choose your preferred colours, fonts, sections and design style.</p>
-      </div>
+      <div class="float-tag">✦ Design without limits</div>
     </div>
   </div>
 </section>
 
-<!-- PACKAGES -->
-<section class="page" id="packages">
+<section id="service">
   <div class="container">
-    <div class="badge">WEBSITE PACKAGES</div>
-    <h2>Choose Your <span class="gradient">Website.</span></h2>
+    <div class="eyebrow">WHAT WE DO</div>
+    <h2 class="section-title">Services built for your ideas.</h2>
+    <p class="section-desc">Choose a service, explore a package, and send your project details.</p>
 
-    <div class="grid">
-      <div class="card">
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="feature-icon">🌐</div>
+        <h3>Business Websites</h3>
+        <p>Present your company, services, contact information, and business identity online.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3>Custom Web Design</h3>
+        <p>Choose your colors, layout, visual style, buttons, and animations.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">💻</div>
+        <h3>Portfolio Websites</h3>
+        <p>Show your work, projects, achievements, skills, and professional profile.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>Mobile-Friendly Design</h3>
+        <p>Responsive layouts designed to adapt to phones, tablets, and computers.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">✨</div>
+        <h3>Animations & 3D</h3>
+        <p>Add depth, motion, glowing elements, smooth transitions, and interactive previews.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">🧑‍💻</div>
+        <h3>Coding Lessons</h3>
+        <p>Explore beginner examples for HTML, CSS, and JavaScript in the locked learning area.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="container">
+    <div class="eyebrow">OUR PACKAGES</div>
+    <h2 class="section-title">Pick your starting point.</h2>
+    <p class="section-desc">Prices are starting package prices in Ethiopian birr. Confirm the final scope before ordering.</p>
+
+    <div class="price-grid">
+      <article class="price-card">
+        <span class="badge">START SIMPLE</span>
         <h3>Starter</h3>
-        <p>A simple website for an individual or small project.</p>
-        <div class="price">5,000 ETB</div>
-        <button class="btn primary" type="button" onclick="choosePackage('Starter')">
-          Choose Starter
-        </button>
-      </div>
+        <div class="price">5,000 <small>ETB</small></div>
+        <p class="section-desc">For a simple online presence.</p>
+        <ul>
+          <li>Basic website layout</li>
+          <li>Mobile-friendly structure</li>
+          <li>About and contact sections</li>
+          <li>Basic color selection</li>
+        </ul>
+        <button class="btn btn-secondary choose-package" data-package="Starter" data-price="5000">Choose Starter</button>
+      </article>
 
-      <div class="card">
-        <h3>Basic</h3>
-        <p>A polished website for a small business.</p>
-        <div class="price">7,000 ETB</div>
-        <button class="btn primary" type="button" onclick="choosePackage('Basic')">
-          Choose Basic
-        </button>
-      </div>
+      <article class="price-card popular">
+        <span class="popular-tag">POPULAR CHOICE</span>
+        <h3>Business</h3>
+        <div class="price">10,000 <small>ETB</small></div>
+        <p class="section-desc">For growing businesses and services.</p>
+        <ul>
+          <li>Expanded business sections</li>
+          <li>Modern responsive design</li>
+          <li>Service and contact areas</li>
+          <li>Enhanced visual styling</li>
+        </ul>
+        <button class="btn btn-primary choose-package" data-package="Business" data-price="10000">Choose Business</button>
+      </article>
 
-      <div class="card">
+      <article class="price-card">
+        <span class="badge">ADVANCED DESIGN</span>
         <h3>Premium</h3>
-        <p>A more detailed website with extra sections and design.</p>
-        <div class="price">11,000 ETB</div>
-        <button class="btn gold" type="button" onclick="choosePackage('Premium')">
-          Choose Premium
-        </button>
-      </div>
+        <div class="price">17,000 <small>ETB</small></div>
+        <p class="section-desc">For a more detailed custom experience.</p>
+        <ul>
+          <li>Advanced page styling</li>
+          <li>Animations and visual effects</li>
+          <li>Custom sections and components</li>
+          <li>Premium design direction</li>
+        </ul>
+        <button class="btn btn-secondary choose-package" data-package="Premium" data-price="17000">Choose Premium</button>
+      </article>
 
-      <div class="card">
+      <article class="price-card">
+        <span class="badge">MADE FOR YOUR VISION</span>
         <h3>Custom</h3>
-        <p>Discuss your individual design and feature requirements.</p>
-        <div class="price">17,000–43,000 ETB</div>
-        <button class="btn green" type="button" onclick="choosePackage('Custom')">
-          Choose Custom
-        </button>
-      </div>
-    </div>
-
-    <div class="notice">
-      These are the displayed package prices. Confirm the exact scope, delivery time,
-      hosting and any extra costs with the developer before paying.
+        <div class="price">20k–35k <small>ETB</small></div>
+        <p class="section-desc">A tailored project with more design choices.</p>
+        <ul>
+          <li>Personalized design direction</li>
+          <li>Custom colors and interactions</li>
+          <li>Project-specific sections</li>
+          <li>Scope-based quotation</li>
+        </ul>
+        <button class="btn btn-primary choose-package" data-package="Custom" data-price="20000–35000">Open Custom Studio</button>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ORDER FORM -->
-<section class="page" id="order">
+<section id="studio">
   <div class="container">
-    <div class="badge">START YOUR PROJECT</div>
-    <h2>Website <span class="gradient">Order Form.</span></h2>
+    <div class="eyebrow">DESIGN PLAYGROUND</div>
+    <h2 class="section-title">Customize your website look.</h2>
+    <p class="section-desc">Try different colors and styles. The preview changes as you make selections.</p>
 
-    <p class="muted">
-      Complete this form to prepare your order. Submitting it here saves the order
-      in this browser; it does not automatically send it to the developer.
-    </p>
+    <div class="split">
+      <div class="panel">
+        <h3>🎛️ Design controls</h3>
+        <div class="field">
+          <label for="designPackage">Selected package</label>
+          <select id="designPackage">
+            <option>Starter</option>
+            <option>Business</option>
+            <option>Premium</option>
+            <option selected>Custom</option>
+          </select>
+        </div>
 
-    <div class="panel">
-      <form id="orderForm">
-        <div class="formgrid">
-
-          <div class="field">
-            <label for="customerName">Your Name *</label>
-            <input id="customerName" required maxlength="100" placeholder="Enter your name">
+        <div class="field">
+          <label>Choose an accent color</label>
+          <div class="color-row">
+            <button class="swatch active" data-color="#65ff9b" style="background:#65ff9b" aria-label="Green"></button>
+            <button class="swatch" data-color="#62c5ff" style="background:#62c5ff" aria-label="Blue"></button>
+            <button class="swatch" data-color="#c59aff" style="background:#c59aff" aria-label="Purple"></button>
+            <button class="swatch" data-color="#ffb65c" style="background:#ffb65c" aria-label="Orange"></button>
+            <button class="swatch" data-color="#ff7fa5" style="background:#ff7fa5" aria-label="Pink"></button>
+            <input class="custom-color" type="color" id="customColor" value="#65ff9b" aria-label="Custom color">
           </div>
+        </div>
 
-          <div class="field">
-            <label for="customerContact">Telegram or Phone *</label>
-            <input id="customerContact" required maxlength="100" placeholder="Your contact">
+        <div class="field">
+          <label for="designStyle">Design style</label>
+          <select id="designStyle">
+            <option value="glass">3D Glass</option>
+            <option value="neon">Neon Glow</option>
+            <option value="minimal">Minimal</option>
+            <option value="futuristic">Futuristic</option>
+            <option value="luxury">Luxury</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="animationStyle">Animation</label>
+          <select id="animationStyle">
+            <option value="float">Floating</option>
+            <option value="reveal">Smooth Reveal</option>
+            <option value="tilt">3D Tilt</option>
+            <option value="glow">Glow Pulse</option>
+            <option value="none">None</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="buttonStyle">Button style</label>
+          <select id="buttonStyle">
+            <option value="glow">Glow</option>
+            <option value="3d">3D Button</option>
+            <option value="glass">Glass</option>
+            <option value="outline">Outline</option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary" id="applyDesign" type="button">Apply Design ✦</button>
+      </div>
+
+      <div class="panel">
+        <h3>🖥️ Live preview</h3>
+        <p>Your sample design updates with your choices.</p>
+        <div class="preview-box" id="previewBox">
+          <div class="preview-top">
+            <strong style="font-size:12px">YOUR WEBSITE</strong>
+            <span style="color:var(--accent)">● ● ●</span>
           </div>
+          <div class="preview-window" id="previewWindow">
+            <div class="eyebrow">WELCOME TO OUR SITE</div>
+            <h3 id="previewHeading">Build Something Great.</h3>
+            <p id="previewDescription">A creative digital experience made for you.</p>
+            <button class="preview-button" id="previewButton" type="button">Explore More ↗</button>
+          </div>
+        </div>
+        <div class="notice">Preview only: this tool changes the sample design on this page. It does not automatically publish or build a separate customer website.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
+<section id="order">
+  <div class="container">
+    <div class="eyebrow">LET'S BUILD</div>
+    <h2 class="section-title">Tell us about your project.</h2>
+    <p class="section-desc">Fill in your details to prepare an order request. The website does not send it automatically.</p>
+
+    <div class="split">
+      <div class="panel">
+        <h3>📋 Project order form</h3>
+        <form id="orderForm">
           <div class="field">
-            <label for="package">Website Package *</label>
-            <select id="package" required>
-              <option value="">Choose a package</option>
-              <option value="Starter — 1,000 ETB">Starter — 1,000 ETB</option>
-              <option value="Basic — 2,000 ETB">Basic — 2,000 ETB</option>
-              <option value="Premium — 4,000 ETB">Premium — 4,000 ETB</option>
-              <option value="Custom — 6,000–8,000 ETB">Custom — 6,000–8,000 ETB</option>
+            <label for="customerName">Your full name *</label>
+            <input id="customerName" name="name" required placeholder="Enter your name">
+          </div>
+          <div class="field">
+            <label for="customerPhone">Phone number *</label>
+            <input id="customerPhone" name="phone" required inputmode="tel" placeholder="Your phone number">
+          </div>
+          <div class="field">
+            <label for="customerEmail">Email (optional)</label>
+            <input id="customerEmail" name="email" type="email" placeholder="you@example.com">
+          </div>
+          <div class="field">
+            <label for="orderPackage">Website package *</label>
+            <select id="orderPackage" name="package" required>
+              <option value="Starter">Starter — 5,000 ETB</option>
+              <option value="Business">Business — 10,000 ETB</option>
+              <option value="Premium">Premium — 17,000 ETB</option>
+              <option value="Custom">Custom — 20,000–35,000 ETB</option>
             </select>
           </div>
-
           <div class="field">
-            <label for="businessName">Company or Website Name *</label>
-            <input id="businessName" required maxlength="150" placeholder="Your company name">
+            <label for="businessName">Business or website name *</label>
+            <input id="businessName" name="business" required placeholder="Name of your website">
           </div>
-
-          <div class="field full">
-            <label for="projectDetails">Describe Your Website *</label>
-            <textarea id="projectDetails" required maxlength="3000"
-              placeholder="What kind of website do you need? What colours and features do you want?"></textarea>
+          <div class="field">
+            <label for="projectType">What kind of website?</label>
+            <select id="projectType" name="type">
+              <option>Business website</option>
+              <option>Personal portfolio</option>
+              <option>School or learning website</option>
+              <option>Online service website</option>
+              <option>Other custom project</option>
+            </select>
           </div>
-
-        </div>
-
-        <div class="actions">
-          <button class="btn gold" type="submit">✓ Submit Website Order</button>
-        </div>
-      </form>
-
-      <div class="status" id="orderStatus" aria-live="polite"></div>
-
-      <div class="actions" id="learnAction" hidden>
-        <button class="btn primary" type="button" onclick="openLearning()">
-          📘 Learn Coding Now
-        </button>
+          <div class="field">
+            <label for="projectDetails">Describe your project *</label>
+            <textarea id="projectDetails" name="details" required placeholder="Describe the pages, features, colors, and purpose..."></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Generate Order Summary ↗</button>
+        </form>
       </div>
 
-      <div class="notice">
-        Do not enter passwords or banking PINs. This demonstration does not collect
-        payments or send orders to a server.
+      <div class="panel">
+        <h3>🧾 Your order summary</h3>
+        <p>After you submit the form, your request will appear here. Review it before contacting the studio.</p>
+        <div id="orderOutput" class="order-output">Your order summary will appear here.</div>
+        <div class="contact-actions">
+          <button id="copyOrder" class="btn btn-secondary" type="button">Copy Summary</button>
+          <button id="downloadOrder" class="btn btn-secondary" type="button">Download Text</button>
+        </div>
+        <div class="notice">Submitting this form only creates a summary in your browser. It does not transmit personal information to the studio or create a confirmed booking.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LEARNING SCHOOL -->
-<section class="page" id="learn">
+<section id="lessons">
   <div class="container">
-    <div class="badge">WILLIAM CODE · CODING SCHOOL</div>
+    <div class="eyebrow">LEARN AND CREATE</div>
+    <h2 class="section-title">The Coding Classroom.</h2>
+    <p class="section-desc">Learn the foundations of website development through HTML, CSS, and JavaScript.</p>
 
-    <h1>Turn Your Ideas Into <span class="gradient">Amazing Websites.</span></h1>
-
-    <p class="lead">
-      Learn HTML, CSS and JavaScript. Practise in your browser and build your own projects.
-    </p>
-
-    <div class="actions">
-      <button class="btn primary" type="button" onclick="showPage('lessons')">
-        🚀 Start Learning
-      </button>
-
-      <button class="btn" type="button" onclick="showPage('lab')">
-        ⌨ Open Code Lab
-      </button>
-
-      <button class="btn gold" type="button" onclick="showPage('shop')">
-        ← Back to Website Shop
-      </button>
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="feature-icon">🧱</div>
+        <h3>HTML</h3>
+        <p>Build the structure of a webpage using headings, paragraphs, links, images, and forms.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">🎨</div>
+        <h3>CSS</h3>
+        <p>Style websites with colors, layouts, responsive design, transitions, and 3D effects.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-icon">⚙️</div>
+        <h3>JavaScript</h3>
+        <p>Make webpages interactive with events, functions, variables, and dynamic updates.</p>
+      </article>
     </div>
 
-    <div class="grid" style="margin-top:28px">
-      <div class="card">
-        <h3>🌐 HTML</h3>
-        <p>Learn how to structure websites with headings, paragraphs, links and forms.</p>
+    <div class="lock-box" id="lockedArea">
+      <div class="lock-icon">🔒</div>
+      <h3>Coding Lessons Locked</h3>
+      <p>Enter the classroom password to reveal the sample lessons.</p>
+      <div class="password-row">
+        <input type="password" id="lessonPassword" placeholder="Enter classroom password" autocomplete="off">
+        <button class="btn btn-primary" id="unlockLessons" type="button">Unlock Lessons</button>
       </div>
-
-      <div class="card">
-        <h3>🎨 CSS</h3>
-        <p>Learn colours, layouts, responsive design, animations and modern styling.</p>
-      </div>
-
-      <div class="card">
-        <h3>⚡ JavaScript</h3>
-        <p>Learn variables, functions, events and interactive website features.</p>
-      </div>
+      <div id="passwordMessage" class="message" role="status"></div>
     </div>
-  </div>
-</section>
 
-<!-- LESSONS -->
-<section class="page" id="lessons">
-  <div class="container">
-    <div class="badge">BEGINNER COURSE</div>
-    <h2>Learn <span class="gradient">Web Development.</span></h2>
+    <div id="lessonContent" class="lesson-content hidden">
+      <div class="eyebrow">ACCESS GRANTED</div>
+      <h2>Welcome to Coding Lessons! 🚀</h2>
+      <p>Start with these examples. You can copy each example into a separate HTML file to experiment.</p>
 
-    <p class="muted">
-      Choose a lesson. The lesson explanation and example will appear below.
-    </p>
+      <h3>Lesson 1 — HTML Structure</h3>
+      <p>HTML defines the content and structure of a webpage.</p>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;My First Page&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Hello, World!&lt;/h1&gt;
+  &lt;p&gt;I am learning HTML.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      <button class="btn btn-secondary btn-small copy-code" type="button">Copy HTML Example</button>
 
-    <div class="lesson-list" id="lessonList"></div>
-
-    <div class="panel">
-      <h2 id="lessonTitle">Introduction to HTML</h2>
-      <div class="lesson-content" id="lessonContent"></div>
-
-      <div class="actions">
-        <button class="btn" type="button" onclick="previousLesson()">← Previous</button>
-        <button class="btn primary" type="button" onclick="nextLesson()">Next Lesson →</button>
-        <button class="btn green" type="button" onclick="showPage('lab')">Practise in Code Lab</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CODE LAB -->
-<section class="page" id="lab">
-  <div class="container">
-    <div class="badge">PRACTISE BY BUILDING</div>
-    <h2>Your <span class="gradient">Code Lab.</span></h2>
-
-    <p class="muted">
-      Edit the HTML and CSS, then tap Run Code to see your result.
-    </p>
-
-    <div class="panel">
-      <div class="editor">
-        <div class="field">
-          <label for="labHTML">HTML Code</label>
-          <textarea id="labHTML" spellcheck="false"><h1>Hello, World!</h1>
-<p>I am learning to code.</p>
-<button id="helloButton">Click Me</button>
-<p id="message"></p></textarea>
-        </div>
-
-        <div class="field">
-          <label for="labCSS">CSS Code</label>
-          <textarea id="labCSS" spellcheck="false">body {
-  font-family: Arial;
-  padding: 20px;
-  background: #eef4ff;
-  color: #14213d;
+      <h3>Lesson 2 — CSS Styling</h3>
+      <p>CSS controls how your webpage looks.</p>
+      <pre><code>body {
+  background: #07110b;
+  color: #65ff9b;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 30px;
 }
 
 h1 {
-  color: #315efb;
-}
+  text-shadow: 0 0 15px #65ff9b;
+}</code></pre>
+      <button class="btn btn-secondary btn-small copy-code" type="button">Copy CSS Example</button>
 
-button {
-  padding: 12px 18px;
-  border: 0;
-  border-radius: 10px;
-  background: #315efb;
-  color: white;
-}</textarea>
-        </div>
-      </div>
+      <h3>Lesson 3 — JavaScript Interaction</h3>
+      <p>JavaScript lets your page respond to actions.</p>
+      <pre><code>const button = document.querySelector("#hello");
 
-      <div class="actions">
-        <button class="btn primary" type="button" id="runCode">
-          ▶ Run Code
-        </button>
+button.addEventListener("click", () => {
+  alert("Keep learning and building!");
+});</code></pre>
+      <button class="btn btn-secondary btn-small copy-code" type="button">Copy JavaScript Example</button>
 
-        <button class="btn" type="button" id="resetCode">
-          ↻ Reset Example
-        </button>
+      <h3>Lesson 4 — A Working Button</h3>
+      <p>Add this button to the HTML body and connect it to the JavaScript example above.</p>
+      <pre><code>&lt;button id="hello"&gt;Click Me&lt;/button&gt;</code></pre>
 
-        <button class="btn gold" type="button" id="downloadCode">
-          ↓ Download HTML
-        </button>
-      </div>
-
-      <iframe id="labPreview" title="Code preview" sandbox="allow-scripts"></iframe>
-
-      <div class="notice">
-        The code runs in a preview frame. Avoid entering passwords or private information.
-      </div>
+      <div class="notice">Security note: this classroom lock is only a front-end demonstration. The password and lesson code can be inspected in the page source. Do not use it to protect private or paid content.</div>
+      <button class="btn btn-secondary" id="lockLessons" type="button">🔒 Lock Lessons</button>
     </div>
-
-    <button class="btn" type="button" onclick="showPage('learn')">
-      ← Back to WILLIAM CODE
-    </button>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="page" id="contact">
+<section id="about">
   <div class="container">
-    <div class="badge">GET IN TOUCH</div>
-    <h2>Contact <span class="gradient">WILLIAM.</span></h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>✈ Telegram</h3>
-        <p>Send a message about a website project.</p>
-        <div class="actions">
-          <a class="btn primary" href="https://t.me/Mah_Wil"
-             target="_blank" rel="noopener noreferrer">Contact on Telegram</a>
-        </div>
+    <div class="eyebrow">ABOUT THE STUDIO</div>
+    <h2 class="section-title">Small ideas can become big projects.</h2>
+    <div class="split">
+      <div class="panel">
+        <h3>Our mission</h3>
+        <p>WILLIAM WEBSITE SHOP aims to turn ideas into clear, creative, and useful websites. We focus on design, learning, and helping projects present themselves online.</p>
       </div>
-<div  class="card">
-    <h3> 📞 contact</h3>
-    <p>0708830433</p>
-</div>
-      <div class="card">
-        <h3>📍 Location</h3>
-        <p>Dessie Tequam, Ethiopia.</p>
+      <div class="panel">
+        <h3>How a project works</h3>
+        <p>1. Describe your idea.<br>2. Choose a package and design direction.<br>3. Discuss the final scope and price.<br>4. Build, review, and test the website.<br>5. Arrange hosting and delivery.</p>
       </div>
-
-      <div class="card">
-        <h3>👨‍💻 Creator</h3>
-        <p>Created by Mahir.</p>
-      </div>
-    </div>
-
-    <div class="actions">
-      <button class="btn" type="button" onclick="showPage('shop')">
-        ← Back to Shop
-      </button>
     </div>
   </div>
 </section>
 
+<section id="contact">
+  <div class="container">
+    <div class="eyebrow">GET IN TOUCH</div>
+    <h2 class="section-title">Let's talk about your idea.</h2>
+    <p class="section-desc">Have a website idea or a question about a package? Use the contact options below.</p>
+
+    <div class="contact-grid">
+      <div class="panel">
+        <h3>Contact WILLIAM</h3>
+        <p>Call or message to discuss your project, price, and timeline.</p>
+        <div class="contact-number">0708830433</div>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="tel:0708830433">📞 CALL US</a>
+          <a class="btn btn-secondary" href="sms:0708830433">✉ CONTACT US</a>
+        </div>
+        <div class="notice">Only contact this number if it belongs to you or is the correct studio contact. You can update it in the code.</div>
+      </div>
+
+      <div class="panel">
+        <h3>Frequently asked questions</h3>
+        <details class="faq-item">
+          <summary>How much does a website cost?</summary>
+          <p>Starter is 5,000 ETB, Business is 10,000 ETB, Premium is 17,000 ETB, and Custom projects are 20,000–35,000 ETB. Confirm the exact scope and price first.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How long does a website take?</summary>
+          <p>The timeline depends on the number of pages, features, content, and revisions. Agree on a delivery date before the project begins.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does this page send orders automatically?</summary>
+          <p>No. It generates an order summary in your browser. You must copy it and contact the studio separately.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I change the design later?</summary>
+          <p>Yes, the design can be updated. Discuss what changes are included in the selected package.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer>
-  <p><strong>WILLIAM WEBSITE SHOP</strong> · <strong>WILLIAM CODE</strong></p>
-  <p>Created by Mahir · <span id="year"></span></p>
-  <p class="muted">Learn · Practise · Build · Improve</p>
+  <div class="container footer-inner">
+    <div><strong style="color:var(--green)">WILLIAM WEBSITE SHOP</strong><br>Design • Development • Creativity</div>
+    <div>© <span id="year"></span> WILLIAM WEB STUDIO. All rights reserved.</div>
+    <a href="#home">Back to top ↑</a>
+  </div>
 </footer>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div id="toast" class="toast hidden" role="status"></div>
 
 <script>
 "use strict";
 
-/* =========================================
-   WILLIAM WEBSITE SHOP + WILLIAM CODE
-   Navigation and button functions
-========================================= */
-
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 
-const validPages = [
-  "shop", "packages", "order", "learn",
-  "lessons", "lab", "contact"
-];
+$("#year").textContent = new Date().getFullYear();
 
-function showPage(pageId) {
-  if (!validPages.includes(pageId)) return;
-
-  $$(".page").forEach(page => {
-    page.classList.toggle("active", page.id === pageId);
-  });
-
-  $$(".navlinks button").forEach(button => {
-    button.classList.toggle(
-      "active",
-      button.dataset.page === pageId
-    );
-  });
-
-  $("#navLinks").classList.remove("open");
-  $("#menuToggle").setAttribute("aria-expanded", "false");
-
-  window.scrollTo({ top: 0, behavior: "smooth" });
-
-  if (pageId === "lab") {
-    runCode();
-  }
-}
-
-function showToast(message) {
+let toastTimer;
+function showToast(message){
   const toast = $("#toast");
   toast.textContent = message;
-  toast.classList.add("show");
-
-  clearTimeout(showToast.timer);
-
-  showToast.timer = setTimeout(() => {
-    toast.classList.remove("show");
-  }, 2800);
+  toast.classList.remove("hidden");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.add("hidden"), 2400);
 }
 
-/* Navigation buttons */
+/* PACKAGE SELECTION */
+const packagePrices = {
+  Starter: "5,000 ETB",
+  Business: "10,000 ETB",
+  Premium: "17,000 ETB",
+  Custom: "20,000–35,000 ETB"
+};
 
-$$(".navlinks button").forEach(button => {
+$$(".choose-package").forEach(button => {
   button.addEventListener("click", () => {
-    showPage(button.dataset.page);
+    const selected = button.dataset.package;
+    $("#designPackage").value = selected;
+    $("#orderPackage").value = selected;
+    $("#studio").scrollIntoView({behavior:"smooth"});
+    showToast(selected + " selected — customize your design!");
   });
 });
 
-/* Mobile menu */
-
-$("#menuToggle").addEventListener("click", () => {
-  const menu = $("#navLinks");
-  const opened = menu.classList.toggle("open");
-
-  $("#menuToggle").setAttribute(
-    "aria-expanded",
-    String(opened)
-  );
+$("#designPackage").addEventListener("change", event => {
+  $("#orderPackage").value = event.target.value;
 });
 
-/* Choose a website package */
+/* DESIGN STUDIO */
+let accentColor = "#65ff9b";
 
-function choosePackage(name) {
-  const packages = {
-    Starter: "Starter — 1,000 ETB",
-    Basic: "Basic — 2,000 ETB",
-    Premium: "Premium — 4,000 ETB",
-    Custom: "Custom — 6,000–8,000 ETB"
-  };
-
-  $("#package").value = packages[name] || "";
-
-  showPage("order");
-  showToast(name + " package selected.");
+function setAccent(color){
+  accentColor = color;
+  document.documentElement.style.setProperty("--accent", color);
+  $$(".swatch").forEach(swatch => {
+    swatch.classList.toggle("active", swatch.dataset.color === color);
+  });
+  updatePreview();
 }
 
-/* Website order form */
+$$(".swatch").forEach(swatch => {
+  swatch.addEventListener("click", () => setAccent(swatch.dataset.color));
+});
+
+$("#customColor").addEventListener("input", event => {
+  setAccent(event.target.value);
+});
+
+function updatePreview(){
+  const preview = $("#previewBox");
+  const windowBox = $("#previewWindow");
+  const button = $("#previewButton");
+  const style = $("#designStyle").value;
+  const animation = $("#animationStyle").value;
+  const buttonStyle = $("#buttonStyle").value;
+
+  preview.style.borderColor = accentColor;
+  preview.style.animation = "none";
+  windowBox.className = "preview-window";
+  windowBox.style.background = "#07110b";
+  windowBox.style.borderRadius = "0";
+  windowBox.style.boxShadow = "none";
+
+  if(style === "glass"){
+    windowBox.classList.add("preview-glass");
+    windowBox.style.borderRadius = "15px";
+  }else if(style === "neon"){
+    windowBox.classList.add("preview-neon");
+  }else if(style === "minimal"){
+    windowBox.classList.add("preview-minimal");
+  }else if(style === "luxury"){
+    windowBox.classList.add("preview-luxury");
+  }else if(style === "futuristic"){
+    windowBox.style.background = "linear-gradient(135deg,#101e35,#07110b)";
+    windowBox.style.borderRadius = "18px";
+  }
+
+  button.style.background = accentColor;
+  button.style.color = "#06100a";
+  button.style.border = "1px solid " + accentColor;
+  button.style.boxShadow = "none";
+  button.style.transform = "none";
+  button.style.borderRadius = "9px";
+
+  if(buttonStyle === "glow"){
+    button.style.boxShadow = "0 0 22px " + accentColor + "77";
+  }else if(buttonStyle === "3d"){
+    button.style.borderBottom = "5px solid " + accentColor;
+    button.style.transform = "translateY(-2px)";
+    button.style.boxShadow = "0 7px 0 #0007";
+  }else if(buttonStyle === "glass"){
+    button.style.background = accentColor + "22";
+    button.style.color = accentColor;
+    button.style.backdropFilter = "blur(10px)";
+  }else if(buttonStyle === "outline"){
+    button.style.background = "transparent";
+    button.style.color = accentColor;
+  }
+
+  if(animation === "float"){
+    preview.style.animation = "float 5s ease-in-out infinite";
+  }else if(animation === "reveal"){
+    windowBox.classList.add("reveal");
+  }else if(animation === "tilt"){
+    preview.style.transform = "perspective(700px) rotateY(-5deg)";
+  }else if(animation === "glow"){
+    preview.style.boxShadow = "0 0 30px " + accentColor + "44";
+  }
+
+  $("#previewHeading").style.color = accentColor;
+}
+
+$("#applyDesign").addEventListener("click", () => {
+  updatePreview();
+  showToast("Design applied to the preview!");
+});
+
+["designStyle","animationStyle","buttonStyle"].forEach(id => {
+  $("#" + id).addEventListener("change", updatePreview);
+});
+updatePreview();
+
+/* ORDER SUMMARY */
+let currentOrderSummary = "";
 
 $("#orderForm").addEventListener("submit", event => {
   event.preventDefault();
 
-  const order = {
-    name: $("#customerName").value.trim(),
-    contact: $("#customerContact").value.trim(),
-    package: $("#package").value,
-    business: $("#businessName").value.trim(),
-    details: $("#projectDetails").value.trim(),
-    date: new Date().toISOString()
-  };
+  const name = $("#customerName").value.trim();
+  const phone = $("#customerPhone").value.trim();
+  const email = $("#customerEmail").value.trim();
+  const selectedPackage = $("#orderPackage").value;
+  const business = $("#businessName").value.trim();
+  const type = $("#projectType").value;
+  const details = $("#projectDetails").value.trim();
 
-  if (
-    !order.name ||
-    !order.contact ||
-    !order.package ||
-    !order.business ||
-    !order.details
-  ) {
+  if(!name || !phone || !business || !details){
     showToast("Please complete all required fields.");
     return;
   }
 
-  try {
-    const savedOrders = JSON.parse(
-      localStorage.getItem("williamWebsiteOrders") || "[]"
-    );
+  currentOrderSummary =
+`WILLIAM WEBSITE SHOP — ORDER REQUEST
+------------------------------------
+Customer: ${name}
+Phone: ${phone}
+Email: ${email || "Not provided"}
+Package: ${selectedPackage}
+Starting price: ${packagePrices[selectedPackage]}
+Website name: ${business}
+Project type: ${type}
 
-    savedOrders.push(order);
+Project details:
+${details}
 
-    localStorage.setItem(
-      "williamWebsiteOrders",
-      JSON.stringify(savedOrders)
-    );
-  } catch (error) {
-    console.warn("Browser storage unavailable.", error);
-  }
+Status: REQUEST PREPARED — NOT YET CONFIRMED
+Please discuss the final scope, price, and timeline before starting.`;
 
-  $("#orderStatus").textContent =
-    "Your order form was submitted on this device. " +
-    "Your selected package is " + order.package +
-    ". To actually send the order to the developer, use the contact option. " +
-    "You can now open WILLIAM CODE below.";
-
-  $("#orderStatus").classList.add("show");
-
-  $("#learnAction").hidden = false;
-
-  showToast("Order form submitted!");
+  $("#orderOutput").textContent = currentOrderSummary;
+  showToast("Order summary created!");
 });
 
-/* Open the learning school after order */
+$("#copyOrder").addEventListener("click", async () => {
+  const text = currentOrderSummary || $("#orderOutput").textContent;
 
-function openLearning() {
-  showPage("learn");
-  showToast("Welcome to WILLIAM CODE!");
-}
-
-/* Lessons */
-
-const lessons = [
-  {
-    title: "1. Introduction to HTML",
-    text: `
-      <p><strong>English:</strong> HTML means HyperText Markup Language.
-      It gives a webpage its structure.</p>
-      <p><strong>አማርኛ:</strong> HTML ማለት የድረ-ገጽን መዋቅር የሚፈጥር ቋንቋ ነው።</p>
-      <h3>Example</h3>
-      <pre>&lt;h1&gt;Hello World&lt;/h1&gt;
-&lt;p&gt;I am learning HTML.&lt;/p&gt;</pre>
-      <p><strong>Activity:</strong> Change “Hello World” to your own name.</p>
-    `
-  },
-  {
-    title: "2. HTML Headings",
-    text: `
-      <p><strong>English:</strong> HTML has six heading levels, from h1 to h6.</p>
-      <p><strong>አማርኛ:</strong> ርዕሶችን ለመጻፍ h1 እስከ h6 እንጠቀማለን።</p>
-      <pre>&lt;h1&gt;Main Heading&lt;/h1&gt;
-&lt;h2&gt;Second Heading&lt;/h2&gt;
-&lt;h3&gt;Third Heading&lt;/h3&gt;</pre>
-      <p><strong>Activity:</strong> Write three different headings in Code Lab.</p>
-    `
-  },
-  {
-    title: "3. Paragraphs and Text",
-    text: `
-      <p><strong>English:</strong> Use the p element for a paragraph.</p>
-      <p><strong>አማርኛ:</strong> ጽሑፍን በአንቀጽ ለማቅረብ p እንጠቀማለን።</p>
-      <pre>&lt;p&gt;This is a paragraph.&lt;/p&gt;
-&lt;strong&gt;Important text&lt;/strong&gt;</pre>
-      <p><strong>Activity:</strong> Write a paragraph about your school.</p>
-    `
-  },
-  {
-    title: "4. Links",
-    text: `
-      <p><strong>English:</strong> The a element creates a link.</p>
-      <p><strong>አማርኛ:</strong> ሌላ ገጽ ወይም ድረ-ገጽ ለመክፈት a እንጠቀማለን።</p>
-      <pre>&lt;a href="https://example.com"&gt;
-Visit Website
-&lt;/a&gt;</pre>
-      <p><strong>Activity:</strong> Create a link to a website you like.</p>
-    `
-  },
-  {
-    title: "5. CSS Introduction",
-    text: `
-      <p><strong>English:</strong> CSS controls the appearance of HTML elements.</p>
-      <p><strong>አማርኛ:</strong> CSS የድረ-ገጽን ቀለም፣ መጠንና አቀማመጥ ይቆጣጠራል።</p>
-      <pre>h1 {
-  color: blue;
-  font-size: 32px;
-}</pre>
-      <p><strong>Activity:</strong> Change the heading colour in Code Lab.</p>
-    `
-  },
-  {
-    title: "6. JavaScript Introduction",
-    text: `
-      <p><strong>English:</strong> JavaScript adds behaviour and interaction to webpages.</p>
-      <p><strong>አማርኛ:</strong> JavaScript ድረ-ገጽን ተግባራዊና ተለዋዋጭ ያደርጋል።</p>
-      <pre>document.getElementById("message")
-  .textContent = "Hello!";</pre>
-      <p><strong>Activity:</strong> Use the Code Lab button to change a message.</p>
-    `
-  }
-];
-
-let currentLesson = 0;
-
-function renderLessons() {
-  const list = $("#lessonList");
-  list.innerHTML = "";
-
-  lessons.forEach((lesson, index) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className =
-      "lesson-button" + (index === currentLesson ? " active" : "");
-    button.textContent = lesson.title;
-
-    button.addEventListener("click", () => {
-      currentLesson = index;
-      renderLessons();
-    });
-
-    list.appendChild(button);
-  });
-
-  $("#lessonTitle").textContent = lessons[currentLesson].title;
-  $("#lessonContent").innerHTML = lessons[currentLesson].text;
-}
-
-function nextLesson() {
-  currentLesson = (currentLesson + 1) % lessons.length;
-  renderLessons();
-}
-
-function previousLesson() {
-  currentLesson =
-    (currentLesson - 1 + lessons.length) % lessons.length;
-
-  renderLessons();
-}
-
-/* Code Lab */
-
-const defaultHTML = `<h1>Hello, World!</h1>
-<p>I am learning to code.</p>
-<button id="helloButton">Click Me</button>
-<p id="message"></p>`;
-
-const defaultCSS = `body {
-  font-family: Arial;
-  padding: 20px;
-  background: #eef4ff;
-  color: #14213d;
-}
-
-h1 {
-  color: #315efb;
-}
-
-button {
-  padding: 12px 18px;
-  border: 0;
-  border-radius: 10px;
-  background: #315efb;
-  color: white;
-}`;
-
-function buildPreviewDocument(html, css) {
-  return `<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>${css}</style>
-</head>
-<body>
-${html}
-<script>
-document.addEventListener("click", function(event) {
-  if (event.target && event.target.id === "helloButton") {
-    const message = document.getElementById("message");
-    if (message) message.textContent = "Amazing! Your JavaScript works.";
+  try{
+    await navigator.clipboard.writeText(text);
+    showToast("Order summary copied!");
+  }catch(error){
+    const area = document.createElement("textarea");
+    area.value = text;
+    document.body.appendChild(area);
+    area.select();
+    const copied = document.execCommand("copy");
+    area.remove();
+    showToast(copied ? "Order summary copied!" : "Please select and copy the summary.");
   }
 });
-<\/script>
-</body>
-</html>`;
-}
 
-function runCode() {
-  const html = $("#labHTML").value;
-  const css = $("#labCSS").value;
-
-  $("#labPreview").srcdoc = buildPreviewDocument(html, css);
-}
-
-$("#runCode").addEventListener("click", () => {
-  runCode();
-  showToast("Code preview updated!");
-});
-
-$("#resetCode").addEventListener("click", () => {
-  $("#labHTML").value = defaultHTML;
-  $("#labCSS").value = defaultCSS;
-  runCode();
-  showToast("Example reset!");
-});
-
-$("#downloadCode").addEventListener("click", () => {
-  const html = $("#labHTML").value;
-  const css = $("#labCSS").value;
-  const completeHTML = buildPreviewDocument(html, css);
-
-  const blob = new Blob(
-    [completeHTML],
-    { type: "text/html;charset=utf-8" }
-  );
-
+$("#downloadOrder").addEventListener("click", () => {
+  const text = currentOrderSummary || $("#orderOutput").textContent;
+  const blob = new Blob([text], {type:"text/plain;charset=utf-8"});
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
-
   link.href = url;
-  link.download = "william-code-project.html";
-
+  link.download = "william-website-order.txt";
   document.body.appendChild(link);
   link.click();
   link.remove();
-
-  setTimeout(() => URL.revokeObjectURL(url), 1000);
-
-  showToast("Download started!");
+  URL.revokeObjectURL(url);
+  showToast("Order text downloaded!");
 });
 
-/* Initial setup */
+/* CLASSROOM PASSWORD
+   Demo only: never use client-side passwords for real security. */
+const DEMO_PASSWORD = "William 23";
 
-$("#year").textContent = new Date().getFullYear();
+function unlockClassroom(){
+  const entered = $("#lessonPassword").value;
 
-renderLessons();
-runCode();
+  if(entered === DEMO_PASSWORD){
+    $("#lessonContent").classList.remove("hidden");
+    $("#lockedArea").classList.add("hidden");
+    $("#passwordMessage").textContent = "";
+    $("#lessonPassword").value = "";
+    showToast("Welcome to the Coding Classroom!");
+    $("#lessonContent").scrollIntoView({behavior:"smooth",block:"start"});
+  }else{
+    $("#passwordMessage").textContent = "Incorrect password. Please try again.";
+    $("#passwordMessage").className = "message error";
+  }
+}
 
+$("#unlockLessons").addEventListener("click", unlockClassroom);
+
+$("#lessonPassword").addEventListener("keydown", event => {
+  if(event.key === "Enter") unlockClassroom();
+});
+
+$("#lockLessons").addEventListener("click", () => {
+  $("#lessonContent").classList.add("hidden");
+  $("#lockedArea").classList.remove("hidden");
+  $("#lessonPassword").value = "";
+  $("#passwordMessage").textContent = "";
+  $("#lockedArea").scrollIntoView({behavior:"smooth",block:"center"});
+  showToast("Lessons locked in this page.");
+});
+
+/* COPY LESSON EXAMPLES */
+$$(".copy-code").forEach(button => {
+  button.addEventListener("click", async () => {
+    const code = button.previousElementSibling.querySelector("code").textContent;
+
+    try{
+      await navigator.clipboard.writeText(code);
+      showToast("Example copied!");
+    }catch(error){
+      const area = document.createElement("textarea");
+      area.value = code;
+      document.body.appendChild(area);
+      area.select();
+      const copied = document.execCommand("copy");
+      area.remove();
+      showToast(copied ? "Example copied!" : "Select the code and copy it.");
+    }
+  });
+});
+
+/* NAVIGATION */
+$$(".navbar a").forEach(link => {
+  link.addEventListener("click", () => {
+    $$(".navbar a").forEach(item => item.style.color = "");
+    link.style.color = "var(--green)";
+  });
+});
 </script>
-
 </body>
 </html>
